@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - CompareHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="hero-carousel-animations.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="pagination-enhancements.css">
+    <link rel="stylesheet" href="filter-panel-enhancements.css">
+    <link rel="stylesheet" href="product-card-enhancements.css">
+    <link rel="stylesheet" href="card.css">
+
+
+    
+    <link rel="stylesheet" href="wishlistmodal-notifications.css">
+
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open menu">☰</button>
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="https://comparehub-smartphone-images.s3.af-south-1.amazonaws.com/IMG_20250625_174144.jpg" alt="CompareHubPrices" class="logo-image">
+                </a>
+            </div>
+            <div class="search-container">
+                <form id="search-form">
+                    <input type="text" name="q" class="search-input" placeholder="Search......." id="searchInput">
+                    <button type="submit" class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
+                </form>
+                <div class="search-suggestions" id="searchSuggestions">
+                    <div class="suggestions-header">
+                        <span class="all-results">All</span>
+                        <span class="search-query" id="searchQuery">results</span>
+                    </div>
+                    <div class="suggestions-grid" id="suggestionsGrid"></div>
+                </div>
+            </div>
+        </div>
+        <nav class="category-nav">
+            <a href="best-deals.html" class="active"><i class=""></i> Best deals</a>
+            <a href="#new-arrivals"><i class=""></i> New Arrivals</a>
+            <a href="#" id="notifications-link"><i class="fas fa-bell"></i> Notifications</a>
+        </nav>
+    </header>
+
+     <div class="main-container">
+      <nav class="sidebar" id="sidebar">
+            <div class="sidebar-login" id="sidebarLogin"></div>
+            <div class="sidebar-search">
+                <input type="text" placeholder="Search categories..." id="sidebarSearchInput">
+            </div>
+            <div class="sidebar-header">
+                <h3>Browse Categories</h3>
+                <button class="close-sidebar" onclick="closeSidebar()" aria-label="Close menu">&times;</button>
+            </div>
+            
+         
+            <button class="switch-categories-btn" onclick="switchCategoryType()">
+                
+                <span id="switchBtnText">Switch to Essential Goods</span>
+            </button>
+            
+            <div class="category-type" id="categoryType">Electronics</div>
+            
+              <div class="menu-content" id="menuContent">
+                <ul class="menu-items" id="electronicsMenu">
+                  <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i> Smartphones,Tablets & Accessories</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                            <li class="item"><a href="smartphones.html" onclick="navigateToSmartphonesByType('all'); return false;">Smartphones</a></li>
+                             <li class="item"><a href="#tablets" onclick="navigateToTabletsByType('all'); return false;">Tablets</a></li>
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Accessories</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#adapters" onclick="navigateToSmartphonesAccessoriesByType('adapters'); return false;">Adapters</a></li>
+                                     <li class="item"><a href="#powerbanks" onclick="navigateToSmartphonesAccessoriesByType('powerbanks'); return false;">Powerbanks</a></li>
+                                     <li class="item"><a href="#cables" onclick="navigateToSmartphonesAccessoriesByType('cables'); return false;">Cables</a></li>
+                                    
+                                 </ul>
+                             </li>
+                             
+                         </ul>
+                    </li>
+
+                       <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i> Computers,Laptops & Accessories</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Laptops</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#windows" onclick="navigateToLaptopsByType('windows'); return false;">Windows</a></li>
+                                     <li class="item"><a href="#macos" onclick="navigateToLaptopsByType('macos'); return false;">MacOS</a></li>
+                                     <li class="item"><a href="#chromeos" onclick="navigateToLaptopsByType('chromeos'); return false;">ChromeOS</a></li>
+                                 </ul>
+                             </li>
+                             
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Desktops</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#windows" onclick="navigateToDesktopsByType('windows'); return false;">Windows</a></li>
+                                     <li class="item"><a href="#macos" onclick="navigateToDesktopsByType('macos'); return false;">MacOS</a></li>
+                                 </ul>
+                               </li>
+
+                              
+                               <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Accessories</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="javascript:void(0);" onclick="navigateToLaptopDesktopAccessoriesByType('adapters')">Charges & Adapters</a></li>
+                                     <li class="item"><a href="javascript:void(0);" onclick="navigateToLaptopDesktopAccessoriesByType('usb_hubs')">USB Hubs</a></li>
+                                     <li class="item"><a href="javascript:void(0);" onclick="navigateToLaptopDesktopAccessoriesByType('keyboards')">Keyboards & Mice</a></li>
+                                     <li class="item"><a href="javascript:void(0);" onclick="navigateToLaptopDesktopAccessoriesByType('speakers')">Speakers</a></li>
+                                     <li class="item"><a href="javascript:void(0);" onclick="navigateToLaptopDesktopAccessoriesByType('webcams')">Webcams</a></li>    
+                                 </ul>
+                             </li>
+
+                                <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Data Storage</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#memory-cards" onclick="navigateToDataStorageByType('memory_cards'); return false;">Memory Cards</a></li>
+                                     <li class="item"><a href="#external-drivers" onclick="navigateToDataStorageByType('external_drivers'); return false;">External Drivers</a></li>
+                                    <li class="item"><a href="#usb-drivers" onclick="navigateToDataStorageByType('usb_drivers'); return false;">USB Drivers</a></li>
+                                   
+                                 </ul>
+                             </li>
+ 
+                               <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Componets</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#motherboard" onclick="navigateToComponentsByType('motherboard'); return false;">Motherboard</a></li>
+                                     <li class="item"><a href="#memory-ram" onclick="navigateToComponentsByType('memory_ram'); return false;">Memory(RAM)</a></li>
+                                     <li class="item"><a href="#graphics-card" onclick="navigateToComponentsByType('graphics_card'); return false;">Graphics Card</a></li>
+                                     <li class="item"><a href="#storage" onclick="navigateToComponentsByType('storage'); return false;">Storage</a></li>
+                                    <li class="item"><a href="#cpu" onclick="navigateToComponentsByType('cpu'); return false;">CPU</a></li>
+                                     <li class="item"><a href="#power-supply" onclick="navigateToComponentsByType('power_supply'); return false;">Power Supply</a></li>
+                                 </ul>
+                             </li>   
+
+                           </ul>
+                    </li>
+
+                    
+                  
+
+                       <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i>Wi-Fi & Networking</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                             <li class="item"><a href="#routers" onclick="navigateToWifiNetworkingByType('routers'); return false;">Routers</a></li>
+                             <li class="item"><a href="#wifi-ups" onclick="navigateToWifiNetworkingByType('wifi_ups'); return false;">WiFi Ups</a></li>
+                             <li class="item"><a href="#extenders-repeaters" onclick="navigateToWifiNetworkingByType('extenders_repeaters'); return false;">Extenders & Repeaters</a></li>
+                        
+                         </ul>
+                    </li>
+
+                    <li class="item">
+                        <div class="submenu-item" onclick="toggleSubmenu(this)">
+                            <span><i class=""></i> TV & Streaming</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <ul class="menu-items submenu">
+                            <li class="item"><a href="javascript:void(0);" onclick="navigateToTVStreamingByType('televisions')">Televisions</a></li>
+                            <li class="item"><a href="javascript:void(0);" onclick="navigateToTVStreamingByType('streaming_devices')">Streaming Devices</a></li>
+                        </ul>
+                    </li>
+
+                       <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i>Audio</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                            
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Earbuds & Headphones</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#earbuds" onclick="navigateToHeadphonesEarbudsByType('earbuds'); return false;">Earbuds</a></li>
+                                     <li class="item"><a href="#headphones" onclick="navigateToHeadphonesEarbudsByType('headphones'); return false;">Headphones</a></li>
+                                 </ul>
+                             </li>
+                             
+                                 <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Portable Speakers</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#bluetooth-speakers" onclick="navigateToPortableSpeakersByType('bluetooth_speakers'); return false;">Bluetooth Speakers</a></li>
+                                     <li class="item"><a href="#party-speakers" onclick="navigateToPortableSpeakersByType('party_speakers'); return false;">Party Speakers</a></li>
+
+                                 </ul>
+                             </li>
+
+
+
+                           <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Home Entertainment Systems</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#hifi-systems" onclick="navigateToHomeEntertainmentByType('hifi_systems'); return false;">Hi-Fi Systems</a></li>
+                                     <li class="item"><a href="#soundbars" onclick="navigateToHomeEntertainmentByType('soundbars'); return false;">Soundbars</a></li>
+                                 </ul>
+                              </li>
+                         </ul>
+                    </li>
+
+                        <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i>Wearables Devices</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                             
+                             <li class="item"><a href="#smartwatches" onclick="navigateToWearablesByType('smartwatches'); return false;">Smartwatches</a></li>
+                             <li class="item"><a href="#fitness-trackers" onclick="navigateToWearablesByType('fitness_trackers'); return false;">Fitness Trackers</a></li>
+                             
+                         </ul>
+                    </li>
+
+                       <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i>Climate Control</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                         
+                             <li class="item"><a href="#fans" onclick="navigateToClimateControlByType('fans'); return false;">Fans</a></li>
+                             <li class="item"><a href="#air-conditioners" onclick="navigateToClimateControlByType('air_conditioners'); return false;">Air Conditioners</a></li>
+                              <li class="item"><a href="#air-coolers" onclick="navigateToClimateControlByType('air_coolers'); return false;">Air Coolers</a></li>
+                         </ul>
+                    </li>
+
+
+
+                       <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i>Gaming</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                            <li class="item"><a href="javascript:void(0);" onclick="navigateToGamingByType('console')">Consoles</a></li>
+                            <li class="item"><a href="javascript:void(0);" onclick="navigateToGamingByType('laptop')">Gaming Laptops</a></li>
+                            <li class="item"><a href="javascript:void(0);" onclick="navigateToGamingByType('pc')">Gaming PCs</a></li>
+                            <li class="item"><a href="javascript:void(0);" onclick="navigateToGamingByType('monitor')">Gaming Monitors</a></li>
+
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span> XBOX Accessories</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="javascript:void(0);" onclick="navigateToGamingByType('consoles_accessories')">Accessories</a></li>
+                                     
+                                 </ul>
+                             </li>
+
+
+
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Nintendo Accessories</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="javascript:void(0);" onclick="navigateToGamingByType('consoles_accessories')">Accessories</a></li>
+                                
+                                 </ul>
+                             </li>
+
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span> Playstation Accessories</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="javascript:void(0);" onclick="navigateToGamingByType('consoles_accessories')">Accessories</a></li>
+                                    
+                                 </ul>
+                             </li>
+
+
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span> PC Gaming Accessories</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="javascript:void(0);" onclick="navigateToGamingByType('pc_accessories_keyboards')">Gaming Keyboards & Mouse</a></li>
+                                     <li class="item"><a href="javascript:void(0);" onclick="navigateToGamingByType('pc_accessories_headsets')">Gaming Headsets</a></li>
+                    
+                                 </ul>
+                             </li>
+                             
+                         </ul>
+                    </li>
+
+                      
+                        <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i>Appliances</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                             
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Fridges & Freezers</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#fridges" onclick="navigateToAppliancesByType('fridges'); return false;">Fridges</a></li>
+                                     <li class="item"><a href="#freezers" onclick="navigateToAppliancesByType('freezers'); return false;">Freezers</a></li>
+                                 </ul>
+                             </li>
+                             
+                                <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Microwaves, Ovens & Stoves</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#microwaves" onclick="navigateToAppliancesByType('microwaves'); return false;">Microwaves</a></li>
+                                     <li class="item"><a href="#ovens" onclick="navigateToAppliancesByType('ovens'); return false;">Ovens</a></li>
+                                     <li class="item"><a href="#stoves" onclick="navigateToAppliancesByType('stoves'); return false;">Stoves</a></li>
+                                 </ul>
+                             </li>
+
+
+                                <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Kettles, Coffee Machines</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#kettles" onclick="navigateToAppliancesByType('kettles'); return false;">Kettles</a></li>
+                                     <li class="item"><a href="#coffee-machines" onclick="navigateToAppliancesByType('coffee_machines'); return false;">Coffee Machines</a></li>
+                                    
+                                 </ul>
+                             </li>
+
+
+
+
+                               <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Floorcare</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#vacuum-cleaners" onclick="navigateToAppliancesByType('vacuum_cleaners'); return false;">Vacuum Cleaners</a></li>
+                                     <li class="item"><a href="#robot-vacuums" onclick="navigateToAppliancesByType('robot_vacuums'); return false;">Robot Vacuums</a></li>
+                                 
+                                 </ul>
+                             </li>
+                                
+
+                                <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Food Preparation</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#mixers" onclick="navigateToAppliancesByType('mixers'); return false;">Mixers</a></li>
+                                     <li class="item"><a href="#food-processors" onclick="navigateToAppliancesByType('food_processors'); return false;">Food Processors</a></li>
+                                     <li class="item"><a href="#blenders-juicers" onclick="navigateToAppliancesByType('blenders_juicers'); return false;">Blenders & Juicers</a></li>
+                                 </ul>
+                             </li>
+                                                
+
+
+                               <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Heaters & Electric Blankets</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#heaters" onclick="navigateToAppliancesByType('heaters'); return false;">Heaters</a></li>
+                                     <li class="item"><a href="#electric-blankets" onclick="navigateToAppliancesByType('electric_blankets'); return false;">Electric Blankets</a></li>
+                                 </ul>
+                             </li>
+                               
+                              <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Personal Care</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#electric-shavers" onclick="navigateToAppliancesByType('electric_shavers'); return false;">Electric Shavers</a></li>
+                                     <li class="item"><a href="#hair-care" onclick="navigateToAppliancesByType('hair_care'); return false;">Hair Care</a></li>
+                                 </ul>
+                             </li>
+                               
+                               <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Cookers & Air Fryers</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#air-fryers" onclick="navigateToAppliancesByType('air_fryers'); return false;">Air Fryers</a></li>
+                                     <li class="item"><a href="#grillers" onclick="navigateToAppliancesByType('grillers'); return false;">Grillers</a></li>
+                                    <li class="item"><a href="#cooker-steamers" onclick="navigateToAppliancesByType('cooker_steamers'); return false;">Cooker&Steamers</a></li>
+                                     <li class="item"><a href="#hotplates" onclick="navigateToAppliancesByType('hotplates'); return false;">Hotplates</a></li>
+                                     
+                                 </ul>
+                             </li>
+
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Toasters & Sandwich Makers</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#toasters" onclick="navigateToAppliancesByType('toasters'); return false;">Toasters</a></li>
+                                     <li class="item"><a href="#sandwich-makers" onclick="navigateToAppliancesByType('sandwich_makers'); return false;">Sandwich Makers</a></li>
+                                     
+                                 </ul>
+                             </li>
+                             
+                             <li class="item"><a href="#dishwashers" onclick="navigateToAppliancesByType('dishwashers'); return false;">Dishwashers</a></li>
+                             <li class="item"><a href="#irons-steamers" onclick="navigateToAppliancesByType('irons_steamers'); return false;">Irons & Steamers</a></li>
+                             <li class="item"><a href="#sewing-machine" onclick="navigateToAppliancesByType('sewing_machine'); return false;">Sewing Machine</a></li>
+                             <li class="item"><a href="#humidifiers-purifiers" onclick="navigateToAppliancesByType('humidifiers_purifiers'); return false;">Humidifiers & Purifiers</a></li>
+                            
+                         </ul>
+                    </li>
+
+
+                       <li class="item">
+                        <div class="submenu-item" onclick="toggleSubmenu(this)">
+                            <span><i class=""></i>Power Solutions</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <ul class="menu-items submenu">
+                      
+                            <li class="item"><a href="#ups" onclick="navigateToPowerSolutionsByType('ups'); return false;">UPS</a></li>
+                            <li class="item"><a href="#power-stations" onclick="navigateToPowerSolutionsByType('power_stations'); return false;">Power Stations</a></li>
+                            <li class="item"><a href="#inverters" onclick="navigateToPowerSolutionsByType('inverters'); return false;">Inverters</a></li>
+                            
+                        </ul>
+                    </li>
+
+
+                         
+
+                </ul>
+                
+                
+                <ul class="menu-items" id="foodMenu" style="display: none;">
+                    <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i>Household</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                            
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Cleaning and Hygiene</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#monitors">Bleaches</a></li>
+                                     <li class="item"><a href="#towers">Dishwashing Liquids</a></li>
+                                     <li class="item"><a href="#monitors">Bleaches</a></li>
+                                     <li class="item"><a href="#towers">Air Freshners</a></li>
+                                     <li class="item"><a href="#monitors">Bleaches</a></li>
+                                     <li class="item"><a href="#towers">Headphones</a></li>
+                                 </ul>
+                             </li>
+                             
+                                <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Essential Cleaning Tools</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#monitors">Beef</a></li>
+                                     <li class="item"><a href="#towers">Chicken meat</a></li>
+                                     <li class="item"><a href="#towers">Milk</a></li>
+                                 </ul>
+                             </li>
+
+
+
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Kitchen Essentials</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#laptop-bags">Kettle & Toasters</a></li>
+                                     <li class="item"><a href="#laptop-cooling">Hotplates</a></li>
+                                     <li class="item"><a href="#stands">Air-fryer</a></li>
+                                 </ul>
+                             </li>
+                             
+                             <li class="item"><a href="#windows-laptops">Insect Control</a></li>
+                             <li class="item"><a href="#macos-laptops">Pet Care</a></li>
+                             <li class="item"><a href="#chrome-os-laptops">Pest control</a></li>
+                         </ul>
+                    </li>
+
+                     <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i>Foods</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                            
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Cleaning and Hygiene</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#monitors">Bleaches</a></li>
+                                     <li class="item"><a href="#towers">Dishwashing Liquids</a></li>
+                                     <li class="item"><a href="#monitors">Bleaches</a></li>
+                                     <li class="item"><a href="#towers">Air Freshners</a></li>
+                                     <li class="item"><a href="#monitors">Bleaches</a></li>
+                                     <li class="item"><a href="#towers">Headphones</a></li>
+                                 </ul>
+                             </li>
+                             
+                                <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Essential Cleaning Tools</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#monitors">Beef</a></li>
+                                     <li class="item"><a href="#towers">Chicken meat</a></li>
+                                     <li class="item"><a href="#towers">Milk</a></li>
+                                 </ul>
+                             </li>
+
+
+
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Home Appliances</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#laptop-bags">Hi-Fi Systems</a></li>
+                                     <li class="item"><a href="#laptop-cooling">Soundbars</a></li>
+                                     <li class="item"><a href="#stands">Stands</a></li>
+                                 </ul>
+                             </li>
+                             
+                            
+                         </ul>
+                    </li>
+
+
+                      <li class="item">
+                         <div class="submenu-item" onclick="toggleSubmenu(this)">
+                             <span><i class=""></i>Personal Care</span>
+                             <i class="fa-solid fa-chevron-right"></i>
+                         </div>
+                         <ul class="menu-items submenu">
+                            
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Toiletries</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#monitors">Deodorants</a></li>
+                                     <li class="item"><a href="#towers">Hand Care</a></li>
+                                 </ul>
+                             </li>
+                             
+                                <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Hair Care</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#monitors">Bluetooth Speakers</a></li>
+                                     <li class="item"><a href="#towers">Headphones</a></li>
+                                     <li class="item"><a href="#towers">Radios</a></li>
+                                 </ul>
+                             </li>
+
+
+
+                             <li class="item">
+                                 <div class="submenu-item" onclick="toggleSubmenu(this)">
+                                     <span>Foot Care</span>
+                                     <i class="fa-solid fa-chevron-right"></i>
+                                 </div>
+                                 <ul class="menu-items submenu">
+                                     <li class="item"><a href="#laptop-bags">Hi-Fi Systems</a></li>
+                                     <li class="item"><a href="#laptop-cooling">Soundbars</a></li>
+                                     <li class="item"><a href="#stands">Stands</a></li>
+                                 </ul>
+                             </li>
+                             
+                             
+                         </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <main class="content">
+            <section class="hero-carousel">
+                <div class="hero-slides">
+                    <div class="hero-slide active">
+                        <a href="https://www.takealot.com/black-friday" target="_blank" class="hero-slide-link">
+                            <picture>
+                                <source media="(max-width: 480px)" srcset="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/ecommerce/za/2025/June/MEGA/WAP-1080x1152.webp">
+                                <source media="(max-width: 768px)" srcset="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/ecommerce/za/2025/June/MEGA/WAP-1080x1152.webp">
+                                <img src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/ecommerce/za/2025/June/MEGA/WEB--3840x1136.webp" alt="Black Friday Deals" class="hero-image">
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="hero-slide">
+                        <a href="https://www.amazon.com/prime-day" target="_blank" class="hero-slide-link">
+                            <picture>
+                                <source media="(max-width: 480px)" srcset="https://hisense.co.za/wp-content/uploads/2025/05/100KV_1920x800-1024x427.jpg">
+                                <source media="(max-width: 768px)" srcset="https://www.asus.com/WebsitesBanner/ZA/banners/store/acizy7bp3pbajipj/acizy7bp3pbajipj-0_0_tablet_0_1X.jpg?webp">
+                                <img src="https://www.defy.co.za/content/dam/defy/za/images-defy-homepage/desktop/Defy_Homepage_Desktop-Blog-Article-Hero-1.png/jcr:content/renditions/original" alt="Prime Day Deals" class="hero-image">
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="hero-slide">
+                         <a href="https://www.takealot.com/tech-deals" target="_blank" class="hero-slide-link">
+                             <picture>
+                                 <source media="(max-width: 480px)" srcset="https://www.asus.com/WebsitesBanner/ZA/banners/store/acizy7bp3pbajipj/acizy7bp3pbajipj-0_0_mobile_0_1X.jpg?webp">
+                                 <source media="(max-width: 768px)" srcset="https://www.asus.com/WebsitesBanner/ZA/banners/store/acizy7bp3pbajipj/acizy7bp3pbajipj-0_0_tablet_0_1X.jpg?webp">
+                                 <img src="https://www.asus.com/WebsitesBanner/ZA/banners/store/acizy7bp3pbajipj/acizy7bp3pbajipj-0_0_desktop_0_1X.jpg?webp" alt="Tech Deals" class="hero-image">
+                             </picture>
+                         </a>
+                    </div>
+                    <div class="hero-slide">
+                         <a href="https://www.amazon.com/home-appliances" target="_blank" class="hero-slide-link">
+                             <picture>
+                                 <source media="(max-width: 480px)" srcset="https://www.asus.com/WebsitesBanner/ZA/banners/store/mh69pfka5ufjjdyj/mh69pfka5ufjjdyj-0_0_mobile_0_1X.jpg">
+                                 <source media="(max-width: 768px)" srcset="https://www.asus.com/WebsitesBanner/ZA/banners/store/mh69pfka5ufjjdyj/mh69pfka5ufjjdyj-0_0_tablet_0_1X.jpg">
+                                 <img src="https://www.asus.com/WebsitesBanner/ZA/banners/store/mh69pfka5ufjjdyj/mh69pfka5ufjjdyj-0_0_desktop_0_1X.jpg" alt="Home Appliances Sale" class="hero-image">
+                             </picture>
+                         </a>
+                    </div>
+                </div>
+                <div class="hero-indicators">
+                    <span class="hero-indicator active" data-slide="0"></span>
+                    <span class="hero-indicator" data-slide="1"></span>
+                    <span class="hero-indicator" data-slide="2"></span>
+                    <span class="hero-indicator" data-slide="3"></span>
+                </div>
+            </section>
+           
+        
+            <div class="page-header">
+                <h1 class="page-title">Smartphones</h1>
+                <div class="sort-options">
+                    <label for="sort-by">Sort by:</label>
+                    <select id="sort-by">
+                        <option value="relevance">Relevance</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="brand-asc">Brand: A to Z</option>
+                        <option value="brand-desc">Brand: Z to A</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-button" data-panel="brand-panel">
+                    <i class="fas fa-tag"></i> Brand
+                </button>
+                <button class="filter-button" data-panel="os-panel">
+                    <i class="fas fa-mobile-alt"></i> OS
+                </button>
+                <button class="filter-button" data-panel="price-panel">
+                    <i class="fas fa-money-bill-wave"></i> Price Range
+                </button>
+                <button id="clear-filters" class="filter-button clear">
+                    <i class="fas fa-times"></i> Clear All
+                </button>
+            </div>
+
+             
+                <div id="brand-panel" class="filter-panel">
+                    <h3>Smartphone Brands</h3>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="all" checked> All Brands
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="apple"> Apple
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="samsung"> Samsung
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="huawei"> Huawei
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="xiaomi"> Xiaomi
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="oppo"> Oppo
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="vivo"> Vivo
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="honor"> Honor
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="google"> Tecno
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="nokia"> Nokia
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="realme"> Realme
+                        </label>
+                    </div>
+                    <div class="apply-buttons">
+                        <button class="apply-filters">Apply</button>
+                        <button class="cancel-filters">Cancel</button>
+                    </div>
+                </div>
+
+               
+                <div id="os-panel" class="filter-panel">
+                    <h3>Operating System</h3>
+                    <div class="filter-options">
+                       
+                        <label class="filter-option">
+                            <input type="checkbox" name="os" value="ios"> iOS
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="os" value="android"> Android
+                        </label>
+   <label class="filter-option">
+                            <input type="checkbox" name="os" value="emui"> emui
+                        </label>
+
+                    </div>
+                    <div class="apply-buttons">
+                        <button class="apply-filters">Apply</button>
+                        <button class="cancel-filters">Cancel</button>
+                    </div>
+                </div>
+
+                
+                <div id="price-panel" class="filter-panel">
+                    <h3>Price Range</h3>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="price" value="0-3000"> Under R3,000
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="price" value="3000-8000"> R3,000 - R8,000
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="price" value="8000-15000"> R8,000 - R15,000
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="price" value="15000-25000"> R15,000 - R25,000
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="price" value="25000+"> Over R25,000
+                        </label>
+                    </div>
+                    <div class="apply-buttons">
+                        <button class="apply-filters">Apply</button>
+                        <button class="cancel-filters">Cancel</button>
+                    </div>
+                </div>
+
+
+                
+            <div class="products-grid" id="products-grid">
+                
+            </div>
+
+            <div class="pagination-container">
+                <div class="pagination" id="pagination">
+                    <button class="page-nav" data-page="prev" aria-label="Previous page">&laquo;</button>
+                    <div class="pages">
+                      
+                    </div>
+                    <button class="page-nav" data-page="next" aria-label="Next page">&raquo;</button>
+                </div>
+            </div>
+            
+         
+        </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+    
+    <!-- Notification Container -->
+    <div class="notification-container" id="notificationContainer"></div>
+<!-- Mobile Search Modal -->
+    <div class="mobile-search-modal" id="mobileSearchModal">
+        <div class="mobile-search-modal-header">
+            <span class="mobile-search-close" id="mobileSearchClose">&times;</span>
+            <form class="mobile-search-form" id="mobileSearchForm">
+                <input type="text" class="mobile-search-input" id="mobileSearchInput" placeholder="Search...">
+                <button type="submit" class="mobile-search-button"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="mobile-search-suggestions" id="mobileSearchSuggestions">
+            <div class="mobile-suggestions-header">
+                <span class="mobile-all-results">All</span>
+                <span class="mobile-search-query" id="mobileSearchQuery">results</span>
+            </div>
+            <div class="mobile-suggestions-grid" id="mobileSuggestionsGrid"></div>
+        </div>
+    </div>
+    
+  
+   
+    
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About CompareHubPrices</h3>
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="FAQs.html">FAQs</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="Terms-of-Service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="newsletter-section">
+                    <h4>Get the Best Deals in Your Inbox</h4>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Enter your email address" required aria-label="Email address for newsletter">
+                        <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CompareHub Prices. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <i class="fas fa-cookie-bite"></i>
+                <span>This website uses cookies to provide you with the best experience. By continuing to use this site, you agree to our use of cookies.</span>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-banner-btn accept-btn" onclick="acceptCookies()">Accept</button>
+                <button class="cookie-banner-btn decline-btn" onclick="declineCookies()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Search suggestions functionality -->
+<script src="search-suggestions.js"></script>
+
+<!-- Account authentication functionality -->
+<script src="account-authentication.js"></script>
+<script src="content-padding.js"></script>
+<!-- Notifications functionality -->
+<script src="notifications.js"></script>
+<!-- Wishlist functionality -->
+<script src="wishlist.js"></script>
+<script src="mobile-search.js"></script>
+
+<!-- Sidebar functionality -->
+<script src="sidebar.js"></script>
+
+<!-- Smartphones functionality -->
+<script src="smartphones.js"></script>
+<script src="chatbox.js"></script>
+
+<!-- Forgot Password Modal JavaScript -->
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-container">
+            <div class="login-modal-header">
+                <button class="login-modal-close" id="loginModalClose">&times;</button>
+                <div class="login-modal-logo-container">
+                    <img src="https://comparehub-smartphone-images.s3.af-south-1.amazonaws.com/IMG_20250625_174144.jpg" alt="Logo">
+                </div>
+            </div>
+            <div class="login-modal-form-container">
+                <div class="login-modal-form-header">
+                    <h2>Welcome Back</h2>
+                    <p>Please sign in to your account to continue</p>
+                </div>
+                
+                <div id="loginAlertContainer"></div>
+                <form class="login-modal-form" id="loginModalForm">
+                    <div class="login-modal-form-group">
+                        <label for="loginModalEmail">Email Address</label>
+                        <input type="email" id="loginModalEmail" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="login-modal-form-group">
+                        <label for="loginModalPassword">Password</label>
+                        <div class="login-modal-input-wrapper">
+                            <input type="password" id="loginModalPassword" name="password" placeholder="Enter your password" required>
+                            <button type="button" class="login-modal-password-toggle" id="loginModalPasswordToggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="login-modal-forgot-password">
+                        <a href="#" id="loginModalForgotPassword">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="login-modal-btn" id="loginModalBtn">
+                        <span id="loginModalBtnText">Sign In</span>
+                        <div class="login-modal-spinner" id="loginModalSpinner" style="display: none;"></div>
+                    </button>
+                </form>
+                <div class="login-modal-register-link">
+                    Don't have an account? <a href="#" id="loginModalRegisterLink">Sign up here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="register-modal" id="registerModal">
+        <div class="register-modal-container">
+            <div class="register-modal-header">
+                <button class="register-modal-close" id="registerModalClose">&times;</button>
+                <div class="register-modal-logo-container">
+                    <img src="https://comparehub-smartphone-images.s3.af-south-1.amazonaws.com/IMG_20250625_174144.jpg"
+                         alt="CompareHub Logo">
+                </div>
+            </div>
+            
+            <div class="register-modal-form-container">
+                <div class="register-modal-form-header">
+                    <h2>Create Account</h2>
+                    <p>Join thousands saving money with smart comparisons</p>
+                </div>
+                
+                <div id="registerAlertContainer"></div>
+                
+                <form id="registerModalForm" autocomplete="off">
+                    <div class="register-modal-form-group">
+                        <div class="register-modal-input-group">
+                            <input type="text" class="register-modal-input" id="registerFirstname" placeholder="First Name" required>
+                            <i class="fas fa-user register-modal-input-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="register-modal-form-group">
+                        <div class="register-modal-input-group">
+                            <input type="text" class="register-modal-input" id="registerLastname" placeholder="Last Name" required>
+                            <i class="fas fa-user register-modal-input-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="register-modal-form-group">
+                        <div class="register-modal-input-group">
+                            <input type="email" class="register-modal-input" id="registerEmail" placeholder="Email Address" required>
+                            <i class="fas fa-envelope register-modal-input-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="register-modal-form-group">
+                        <div class="register-modal-input-group">
+                            <input type="password" class="register-modal-input" id="registerPassword" placeholder="Password" required>
+                            <button type="button" class="register-modal-password-toggle" onclick="toggleRegisterPassword('registerPassword')">
+                                <i class="fas fa-eye" id="registerPassword-eye"></i>
+                            </button>
+                        </div>
+                        <div class="register-modal-password-strength">
+                            <div class="register-modal-strength-title">Password Requirements</div>
+                            <div class="register-modal-strength-indicators">
+                                <div class="register-modal-strength-item" id="register-length-check">
+                                    <i class="fas fa-times"></i>
+                                    <span>8+ characters</span>
+                                </div>
+                                <div class="register-modal-strength-item" id="register-upper-check">
+                                    <i class="fas fa-times"></i>
+                                    <span>Uppercase letter</span>
+                                </div>
+                                <div class="register-modal-strength-item" id="register-number-check">
+                                    <i class="fas fa-times"></i>
+                                    <span>Number</span>
+                                </div>
+                                <div class="register-modal-strength-item" id="register-special-check">
+                                    <i class="fas fa-times"></i>
+                                    <span>Special character</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="register-modal-form-group">
+                        <div class="register-modal-input-group">
+                            <input type="password" class="register-modal-input" id="registerConfirmPassword" placeholder="Confirm Password" required>
+                            <button type="button" class="register-modal-password-toggle" onclick="toggleRegisterPassword('registerConfirmPassword')">
+                                <i class="fas fa-eye" id="registerConfirmPassword-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="register-modal-checkbox-group">
+                        <div class="register-modal-checkbox">
+                            <input type="checkbox" id="registerTerms" required style="position: absolute; opacity: 0; cursor: pointer; height: 100%; width: 100%; margin: 0; z-index: 1;">
+                            <div class="register-modal-checkmark"></div>
+                        </div>
+                        <label for="registerTerms" class="register-modal-checkbox-label" style="cursor: pointer;">
+                            I agree to the <a href="Terms-of-Service.html" target="_blank" style="pointer-events: auto;">Terms of Service</a> and <a href="privacy-policy.html" target="_blank" style="pointer-events: auto;">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="register-modal-btn" id="registerModalBtn">
+                        <i class="fas fa-user-plus"></i>
+                        <span id="registerModalBtnText">Create Account</span>
+                        <div class="register-modal-spinner" id="registerModalSpinner" style="display: none;"></div>
+                    </button>
+                </form>
+                
+                <div class="register-modal-divider">
+                    <span>Already have an account?</span>
+                </div>
+                
+                <div class="register-modal-login-link">
+                    <a href="#" id="registerModalLoginLink">
+                        <i class="fas fa-arrow-left"></i> Sign in instead
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="forgot-password-modal">
+        <div class="forgot-password-modal-container">
+            <div class="forgot-password-modal-header">
+                <button class="forgot-password-modal-close" onclick="closeForgotPasswordModal()">&times;</button>
+                <div class="forgot-password-modal-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+            </div>
+            <div class="forgot-password-modal-form-container">
+                <div class="forgot-password-modal-form-header">
+                    <h2>Reset Password</h2>
+                    <p>Enter your email address and we'll send you a code to reset your password.</p>
+                </div>
+                
+                <div id="forgotPasswordAlert" class="forgot-password-modal-alert" style="display: none;"></div>
+                
+                <form id="forgotPasswordForm">
+                    <div class="forgot-password-modal-form-group">
+                        <label for="forgotPasswordEmail">Email Address</label>
+                        <input
+                            type="email"
+                            id="forgotPasswordEmail"
+                            name="email"
+                            placeholder="Enter your email address"
+                            required
+                        >
+                    </div>
+                    
+                    <button type="submit" class="forgot-password-modal-btn" id="forgotPasswordBtn">
+                        <span id="forgotPasswordBtnText">Send Reset Code</span>
+                        <div id="forgotPasswordSpinner" class="forgot-password-modal-spinner" style="display: none;"></div>
+                    </button>
+                </form>
+                
+                <div class="forgot-password-modal-back-link">
+                    <a href="#" onclick="closeForgotPasswordModal(); showLoginModal();">Back to Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
